@@ -146,7 +146,6 @@ public class DMHeap<T> implements DMQueue<T>{
 	public static void main(String[] args) {
 		
 		// add code too clear the file
-	  
 		String filePath = ("C:\\Users\\dahan\\Downloads\\new_songs.txt");
 	    DMHeap<String> songHeap = new DMHeap<>();
 
