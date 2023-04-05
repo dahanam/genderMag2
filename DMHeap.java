@@ -1,11 +1,13 @@
 package GenderMag2;
 
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.List;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class DMHeap<T> implements DMQueue<T>{
 	//priority queue
@@ -23,7 +25,13 @@ public class DMHeap<T> implements DMQueue<T>{
         if (x == null) {return -1;}
         if (y == null) {return 1;}
         
-        return ((Comparable<T>) x).compareTo(y);
+        // sort heap based off of the songID
+        String songIDX = ((String) x).split("SongID='")[1].split("'")[0];
+        String songIDY = ((String) y).split("SongID='")[1].split("'")[0];
+        return songIDX.compareTo(songIDY);
+        
+        //sorts alphabetically
+        //return ((Comparable<T>) x).compareTo(y);
     }
 	
 	//swap
@@ -88,6 +96,30 @@ public class DMHeap<T> implements DMQueue<T>{
 		        heap.set(0, last);
 		        heapifyDown(0); // ~ recursive
 		    }
+		    
+		 // Remove the song from the text file
+		    try {
+		        String songIDToRemove = ((String) root).split("SongID='")[1].split("'")[0];
+		        String filePath = ("C:\\Users\\dahan\\Downloads\\new_songs.txt");
+		        File file = new File(filePath);
+		        List<String> lines = Files.readAllLines(Paths.get(filePath));
+		        // Remove the line that contains the song to be removed
+		        lines.removeIf(line -> line.contains("SongID='" + songIDToRemove + "'"));
+		       
+		        // Write the updated list of lines back to the text file
+		        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+		        for (String line : lines) {
+		            writer.write(line);
+		            writer.newLine();
+		            //System.out.print();
+		        }
+		        writer.close();
+		    } catch (IOException e) {
+		        System.out.println("Failed to remove song from the text file: " + e.getMessage());
+		        e.printStackTrace();
+		    }
+
+
 		    return root;
 	}
 	// maintain the structure
@@ -149,6 +181,8 @@ public class DMHeap<T> implements DMQueue<T>{
 		String filePath = ("C:\\Users\\dahan\\Downloads\\new_songs.txt");
 	    DMHeap<String> songHeap = new DMHeap<>();
 
+	    songHeap.deleteAll();
+	    
 	    // add 20 songs to the heap
 	    songHeap.addSong("{Name='Bohemian Rhapsody',Artist='Queen',Year='1975', Album='A Night at the Opera',SongID='1741360'}");
 	    songHeap.addSong("{Name='Imagine', Artist='John Lennon', Year='1971',Album='Imagine', SongID='1548985'}");
@@ -174,6 +208,13 @@ public class DMHeap<T> implements DMQueue<T>{
 	    songHeap.addSong("{Name='Johnny B. Goode', Artist='Chuck Berry', Year='1958', Album='Chuck Berry Is on Top', SongID='1204100'}");
 	    songHeap.addSong("{Name='Sweet Child O’ Mine', Artist='Guns N’ Roses', Year='1987', Album='Appetite for Destruction', SongID='1011725'}");
 
+	    // remove 5 songs --> the root
+	    String removeSong = songHeap.removeSong();
+	    String removeSong2 = songHeap.removeSong();
+	    String removeSong3 = songHeap.removeSong();
+	    String removeSong4 = songHeap.removeSong();
+	    String removeSong5 = songHeap.removeSong();
+	    
 	    // adds the songs to the updated txt file that contains the ID column
 	    try {
 	        BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true)); //true is used for appending
@@ -187,8 +228,6 @@ public class DMHeap<T> implements DMQueue<T>{
 	        }
 	    
 	
-		// remove 5 songs
-		songHeap.removeSong();
-
+	
 	}// end of main
 }// end of class
