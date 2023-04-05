@@ -1,0 +1,15 @@
+{Name='Bohemian Rhapsody',Artist='Queen',Year='1975', Album='A Night at the Opera',SongID='1741360'}
+{Name='Good Vibrations', Artist='The Beach Boys', Year='1966', Album='Good Vibrations', SongID='1626976'}
+{Name='Born to Run', Artist='Bruce Springsteen', Year='1975', Album='Born to Run', SongID='1625241'}
+{Name='Smells Like Teen Spirit', Artist='Nirvana', Year='1991', Album='Nevermind', SongID='1587113'}
+{Name='Imagine', Artist='John Lennon', Year='1971',Album='Imagine', SongID='1548985'}
+{Name='What’s Going On', Artist='Marvin Gaye', Year='1971', Album='What’s Going On', SongID='1432866'}
+{Name='Hotel California', Artist='The Eagles', Year='1976', Album='Hotel California', SongID='1394738'}
+{Name='Sweet Home Alabama', Artist='Lynyrd Skynyrd', Year='1974', Album='Second Helping', SongID='1356611'}
+{Name='My Girl', Artist='The Temptations', Year='1965', Album='The Temptations Sing Smokey', SongID='1240492'}
+{Name='Johnny B. Goode', Artist='Chuck Berry', Year='1958', Album='Chuck Berry Is on Top', SongID='1204100'}
+{Name='I Will Always Love You', Artist='Whitney Houston', Year='1973', Album='Jolene', SongID='1202364'}
+{Name='Yesterday', Artist='The Beatles', Year='1965', Album='Help', SongID='1164236'}
+{Name='Stairway to Heaven', Artist='Led Zeppelin', Year='1971', Album='Led Zeppelin IV', SongID='1126108'}
+{Name='Sweet Child O’ Mine', Artist='Guns N’ Roses', Year='1987', Album='Appetite for Destruction', SongID='1011725'}
+{Name='Billie Jean', Artist='Michael Jackson', Year='1982', Album='Thriller', SongID='1009989'}
