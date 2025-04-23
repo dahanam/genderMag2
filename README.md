@@ -15,8 +15,8 @@ Part 1 (Student 1)
 
 Part 2 (Student 2)
 
-* Defines a generic YourInitialsQueue<T> interface for basic queue operations.
-* Implements a max-heap class (YourInitialsHeap<T>) that realizes the queue API.
+* Defines a generic DM<T> interface for basic queue operations.
+* Implements a max-heap class (DM<T>) that realizes the queue API.
 * Shows manual and programmatic construction/removal of heap elements using a 20-song subset.
 * Applies the DAV persona to assess how an alternate user would experience this code.
 
@@ -40,5 +40,5 @@ Search & Sort
 
 Heap & Queue API (Part 2)
 
-* YourInitialsQueue<T> interface with methods: add, deleteAll, isEmpty, peek, push, remove, size.
-* YourInitialsHeap<T>: a generic max-heap implementation that supports all queue operations, plus heapify and heapSort.
+* DM<T> interface with methods: add, deleteAll, isEmpty, peek, push, remove, size.
+* DM<T>: a generic max-heap implementation that supports all queue operations, plus heapify and heapSort.
