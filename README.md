@@ -1,44 +1,65 @@
-﻿# genderMag2
+# GenderMag2 — Java Data Structures with Inclusive Design Evaluation
 
-Course: CPS *2232 Spring 2023
-Team: Dahana Moz Ruiz [Student 2] & Roilan Iglesias [Student 1]
+**Course:** CPS 2232 — Data Structures, Spring 2023
+**Team:** Dahana Moz Ruiz & Roilan Iglesias
+**Language:** Java
 
-📖 Project Overview
-This repository contains two complementary parts of our GenderMag–inspired assignment:
+---
 
-Part 1 (Student 1)
+## Overview
 
-* Implements a generic Song class supporting arbitrary metadata fields.
-* Provides file I/O methods to read, search, and display a collection of songs from a plain-text table.
-* Demonstrates sorting via custom SongComparator implementations.
-* Uses the Pat persona to evaluate the code’s maintainability and usability.
+This project implements core data structures in Java — including a generic max-heap, queue API, and a song collection manager with file I/O and sorting — and evaluates the codebase using the **GenderMag cognitive walkthrough method**, a research-backed framework for identifying usability and inclusivity issues in software.
 
-Part 2 (Student 2)
+---
 
-* Defines a generic DM<T> interface for basic queue operations.
-* Implements a max-heap class (DM<T>) that realizes the queue API.
-* Shows manual and programmatic construction/removal of heap elements using a 20-song subset.
-* Applies the DAV persona to assess how an alternate user would experience this code.
+## What is GenderMag?
 
-🔍 Key Features
-Generic Data Model
+GenderMag (Gender-Inclusiveness Magnifier) is a software inspection method developed by researchers at Oregon State University. It uses fictional personas with different problem-solving styles to surface design decisions that may unintentionally exclude certain users. This project applies two personas:
 
-* Song<T> holds four arbitrary data fields (songData1–songData4), including a programmatically generated 7-digit ID.
-* Fully encapsulated with constructors, getters/setters, and toString().
+- **Pat** — used to evaluate the Song collection and sorting implementation
+- **DAV** — used to evaluate the heap and queue implementation
 
-File I/O Utilities
+---
 
-* readSongsArray(String path) → Song<?>[]
-* readSongsList(String path) → LinkedList<Song<?>>
-* Duplicate song entries and randomized IDs are generated automatically.
+## Project Structure
 
-Search & Sort
+### Part 1 — Song Collection Manager
+- `Song.java` — Generic Song class with 4 arbitrary metadata fields and auto-generated 7-digit IDs
+- `TestSong.java` — File I/O utilities: read, search, and display songs from a plain-text table
+- `songs.txt` / `new_songs.txt` — Sample song datasets
 
-* searchByName(Song<?>[] array, String name)
-* searchByYearThenName(List<Song<?>> list, int year, String name)
-* Two Comparator<Song<?>> implementations for name‐only and year-then-name comparisons.
+**Key features:**
+- Search by name or by year + name
+- Two `Comparator<Song<?>>` implementations for flexible sorting
+- Fully encapsulated with constructors, getters/setters, and `toString()`
 
-Heap & Queue API (Part 2)
+### Part 2 — Heap & Queue Implementation
+- `DMQueue.java` — Generic queue interface with: `add`, `deleteAll`, `isEmpty`, `peek`, `push`, `remove`, `size`
+- `DMHeap.java` — Generic max-heap implementing the queue API, plus `heapify` and `heapSort`
+- `HeapSort.java` — Heap sort demonstration on a 20-song subset
+- `exHeap.java` — Manual heap construction and removal examples
 
-* DM<T> interface with methods: add, deleteAll, isEmpty, peek, push, remove, size.
-* DM<T>: a generic max-heap implementation that supports all queue operations, plus heapify and heapSort.
+---
+
+## How to Run
+
+```bash
+# Compile all files
+javac *.java
+
+# Run the song collection demo
+java TestSong
+
+# Run the heap sort demo
+java HeapSort
+```
+
+---
+
+## Key Concepts Demonstrated
+
+- Generic types in Java (`Song<?>`, `DM<T>`)
+- Max-heap construction and heap sort
+- File I/O with plain-text parsing
+- Custom `Comparator` implementations
+- GenderMag usability evaluation methodology
