@@ -1,4 +1,4 @@
-# GenderMag2 — Java Data Structures with Inclusive Design Evaluation
+# Java Data Structures — Heap, Queue & Sorting with GenderMag Evaluation
 
 **Course:** CPS 2232 — Data Structures, Spring 2023
 **Team:** Dahana Moz Ruiz & Roilan Iglesias
